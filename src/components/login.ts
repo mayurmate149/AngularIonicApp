@@ -6,9 +6,9 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   template: `
 <form (ngSubmit)="login()"
       [formGroup]="form" class="login">
-  <label>Email</label>
-  <input type="email"
-         formControlName="email" name="email">
+  <label>Username</label>
+  <input type="text"
+         formControlName="username">
   <label>Password</label>
   <input type="password"
          formControlName="password">
@@ -21,12 +21,12 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      email: [''],
+      username: [''],
       password: [''],
     });
   }
 
   login() {
-    console.log(`Login ${this.form.value.email}`);
+    console.log(`Login ${this.form.value.username}`);
   }
 }

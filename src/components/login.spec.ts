@@ -29,70 +29,92 @@ describe('Component: Login', () => {
     element = de.nativeElement;
   });
 
+  // to test whether LoginComponent is defined or not
   it('should have a defined component', () => {
     expect(component).toBeDefined();
   });
 
-  it('should contain email', () => {
-    const email = component.form.controls.email;
-    expect(email).toBeDefined();
+  // to test whether username is defined or not
+  it('should contain username', () => {
+    const username = component.form.controls.username;
+    expect(username).toBeDefined();
   });
 
+  // to test whether password is defined or not
   it('should contain password', () => {
     const password = component.form.controls.password;
     expect(password).toBeDefined();
   });
 
+  // to test whether button is present or not
   it('should contain login button', () => {
     expect(element.innerHTML).toContain('button');
   });
 
-  it('should contain Remember Me', () => {
-    expect(element.innerHTML).toContain('.checkbox');
+  // to test whether checkbox is present or not
+  it('should contain Remember Me checkbox', () => {
+    expect(element.innerHTML).toContain('checkbox');
   });
 
-  it('should contain Forget password', () => {
+  // to test whether Forgot password is present or not
+  it('should contain Forgot password', () => {
     const debug = fixture.debugElement.query(By.css('a'));
     const el = de.nativeElement;
-    expect(el.innerHTML).toContain('Forget Password');
+    expect(el.innerHTML).toContain('Forgot Password');
   });
 
-  it('should contain footer as @2018 LocationGuru Pvt. Ltd.', () => {
+  // to test whether copyrights text is present or not
+  it('should contain footer of copyrights text', () => {
     const debug = fixture.debugElement.query(By.css('.footer'));
     const el = de.nativeElement;
     expect(el.innerHTML).toContain('@2018 LocationGuru Pvt. Ltd.');
   });
 
-  it('should check initial input', () => {
-    const email = component.form.controls.email;
-    fixture.detectChanges();
-    expect(email.value).toBe('');
+  // to test whether username input field is empty initially or not
+  it('should check initial input to be empty', () => {
+    const username = component.form.controls.username;
+    expect(username.value.trim()).toBe('');
   });
 
+  // to test whether type of input field is password or not
   it('should have input field of type password', () => {
     const debug = fixture.debugElement.query(By.css('input'));
     const el = de.nativeElement;
     expect(el.innerHTML).toContain('type="password"');
   });
 
-  it('should have input field of type email', () => {
+  // to test whether type of input field is text or not
+  it('should have username input field of type text', () => {
     const debug = fixture.debugElement.query(By.css('input'));
     const el = de.nativeElement;
-    expect(el.innerHTML).toContain('type="email"');
+    expect(el.innerHTML).toContain('type="text"');
   });
 
-  it('should have length of input fields between 6 and 20', () => {
-    const debug = fixture.debugElement.query(By.css('input'));
-    const el = de.nativeElement;
-    expect(el.value.length).toBeGreaterThan(6);
-    expect(el.value.length).toBeLessThan(20);
+  // to test whether length of username is between 6 and 20 or not
+  it('should have length of username input field between 6 and 20', () => {
+    const username = component.form.controls.username;
+    expect(username.value.length).toBeGreaterThan(6);
+    expect(username.value.length).toBeLessThan(20);
   });
 
-  it('should have label as Email and Password', () => {
+  // to test whether length of password is between 6 and 20 or not
+  it('should have length of password input field between 6 and 20', () => {
+    const password = component.form.controls.password;
+    expect(password.value.length).toBeGreaterThan(6);
+    expect(password.value.length).toBeLessThan(20);
+  });
+
+  // to test whether label is Username or not
+  it('should have label as Username', () => {
     const debug = fixture.debugElement.query(By.css('label'));
     const el = de.nativeElement;
-    fixture.detectChanges();
-    expect(el.textContent).toContain('Email');
+    expect(el.textContent).toContain('Username');
+  });
+
+  // to test whether label is Password or not
+  it('should have label as Password', () => {
+    const debug = fixture.debugElement.query(By.css('label'));
+    const el = de.nativeElement;
     expect(el.textContent).toContain('Password');
   });
 
