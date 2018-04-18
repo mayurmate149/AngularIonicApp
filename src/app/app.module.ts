@@ -6,12 +6,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { MyApp } from './app.component';
+import { LoginComponent } from '../components/login';
 
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
     MyApp,
     HomePage,
+    LoginComponent,
   ],
   entryComponents: [
     MyApp,
