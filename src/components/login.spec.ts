@@ -53,7 +53,7 @@ describe('Component: Login', () => {
 
   // to test whether checkbox is present or not
   it('should contain Remember Me checkbox', () => {
-    expect(element.innerHTML).toContain('ion-checkbox');
+    expect(element.innerHTML).toContain('checkbox');
   });
 
   // to test whether Forgot password is present or not
