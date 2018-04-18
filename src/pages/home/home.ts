@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginComponent } from '../../components/login';
 
 @Component({
   selector: 'page-home',
