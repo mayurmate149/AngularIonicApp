@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { MyApp } from './app.component';
 
 @NgModule({
@@ -12,10 +13,12 @@ import { MyApp } from './app.component';
   declarations: [
     MyApp,
     HomePage,
+    LoginPage,
   ],
   entryComponents: [
     MyApp,
     HomePage,
+    LoginPage,
   ],
   imports: [
     BrowserModule,
