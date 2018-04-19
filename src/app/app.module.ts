@@ -6,6 +6,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { MyApp } from './app.component';
+import { HttpService } from '../utility/http.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -20,11 +22,13 @@ import { MyApp } from './app.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    HttpService,
   ],
 })
 export class AppModule {}
