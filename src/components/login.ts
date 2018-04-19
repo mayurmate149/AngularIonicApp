@@ -5,7 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   selector: 'app-login',
   template: `
 <form (ngSubmit)="login()"
-      [formGroup]="form" class="login">
+      [formGroup]="form">
   <label>Username</label>
   <input type="text"
          formControlName="username">

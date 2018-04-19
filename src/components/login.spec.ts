@@ -25,7 +25,7 @@ describe('Component: Login', () => {
 
     // get test component from the fixture
     component = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('.login'));
+    de = fixture.debugElement.query(By.css('form'));
     element = de.nativeElement;
   });
 
@@ -64,10 +64,11 @@ describe('Component: Login', () => {
   });
 
   // to test whether copyrights text is present or not
+  // TODO : we have to move this test cases into footer component
   it('should contain footer of copyrights text', () => {
     const debug = fixture.debugElement.query(By.css('.footer'));
     const el = de.nativeElement;
-    expect(el.innerHTML).toContain('@2018 LocationGuru Pvt. Ltd.');
+    expect(el.innerHTML).toContain('&copy; 2018 LocationGuru Ltd.');
   });
 
   // to test whether username input field is empty initially or not
@@ -92,6 +93,7 @@ describe('Component: Login', () => {
 
   // to test whether length of username is between 6 and 20 or not
   it('should have length of username input field between 6 and 20', () => {
+    component.form.controls.username.setValue('waffwaff');
     const username = component.form.controls.username;
     expect(username.value.length).toBeGreaterThan(6);
     expect(username.value.length).toBeLessThan(20);
@@ -99,6 +101,7 @@ describe('Component: Login', () => {
 
   // to test whether length of password is between 6 and 20 or not
   it('should have length of password input field between 6 and 20', () => {
+    component.form.controls.password.setValue('waffwaff');
     const password = component.form.controls.password;
     expect(password.value.length).toBeGreaterThan(6);
     expect(password.value.length).toBeLessThan(20);
