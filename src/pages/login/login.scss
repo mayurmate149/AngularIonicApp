@@ -35,6 +35,10 @@ page-login {
             a {
                 color: color($colors, link-color);
             }
+
+            a:hover {
+                color: color($colors, link-hover-color);
+            }
         }   
     
         .log-btn {
@@ -66,4 +70,6 @@ page-login {
             color: color($colors, light);
             font-size: 13px;
         }  
+
+
 }
