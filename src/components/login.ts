@@ -16,10 +16,11 @@ import { ShowToast } from '../utility/showToast';
          formControlName="password">
   <button type="submit">Login</button>
 </form>
+<br>
+<br>
 <button (click)="getRequest()">GET</button>
 <button (click)="postRequest()">POST</button>
 <p>{{user}}</p>
-<p>{{status}}</p>
 `,
 })
 export class LoginComponent {
