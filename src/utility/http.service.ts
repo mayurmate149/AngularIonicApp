@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { error } from 'util';
 
 @Injectable()
 export class HttpService {
@@ -13,7 +12,7 @@ export class HttpService {
     return this.http.get(url)
       .map((res: Response) => {
         return { status: res.status, json: res.json() };
-      });
+      }).catch((err: Response) => Observable.throw(err));
   }
 
   public post(url, body): Observable<any> {

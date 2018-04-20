@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from '../components/login';
 import { LoginService } from '../components/login.service';
 import { BaseService } from '../utility/base.service';
+import { ShowToast } from '../utility/showToast';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -35,6 +36,7 @@ import { BaseService } from '../utility/base.service';
     HttpService,
     LoginService,
     BaseService,
+    ShowToast,
   ],
 })
 export class AppModule {}

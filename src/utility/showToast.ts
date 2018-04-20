@@ -1,7 +1,8 @@
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
-export class HttpComponent {
+@Injectable()
+export class ShowToast {
   constructor(private toastCtrl: ToastController) {
   }
 

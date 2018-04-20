@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from './login.service';
-import { ToastController } from 'ionic-angular';
+import { ShowToast } from '../utility/showToast';
 
 @Component({
   selector: 'app-login',
@@ -24,9 +24,7 @@ import { ToastController } from 'ionic-angular';
 })
 export class LoginComponent {
   form: FormGroup;
-  status: any;
   user: any;
-  message: any;
   public body = {
     id: 101,
     title: 'foo',
@@ -34,7 +32,7 @@ export class LoginComponent {
     userId: 1,
   };
 
-  constructor(private fb: FormBuilder, public loginService: LoginService, private toastCtrl: ToastController) {
+  constructor(private fb: FormBuilder, public loginService: LoginService, private showToast: ShowToast) {
     this.form = this.fb.group({
       username: [''],
       password: [''],
@@ -42,46 +40,25 @@ export class LoginComponent {
   }
   getRequest() {
     this.loginService.get().subscribe((data) => {
-      this.message = data.message;
       this.user = data.json.title;
-      this.presentToast();
+      this.showToast.presentToast(data.message);
     },
     // tslint:disable-next-line:align
     (error) => {
-      console.log(error);
-      this.message = error.message;
-      this.presentToast();
+      this.showToast.presentToast(error.message);
     });
   }
 
 
   postRequest() {
     this.loginService.post(this.body).subscribe((data) => {
-      console.log(data);
       this.user = data.json.title;
-      this.message = data.message;
-      this.presentToast();
+      this.showToast.presentToast(data.message);
     },
     // tslint:disable-next-line:align
     (error) => {
-      console.log(error);
-      this.message = error.message;
-      this.presentToast();
+      this.showToast.presentToast(error.message);
     });
-  }
-
-  presentToast() {
-    const toast = this.toastCtrl.create({
-      message: this.message,
-      duration: 3000,
-      position: 'top',
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
   }
 
   login() {

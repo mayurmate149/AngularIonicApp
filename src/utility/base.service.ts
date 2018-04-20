@@ -9,11 +9,8 @@ export class BaseService {
   }
   get(url): Observable<any> {
     return this.http.get(url).map((res: Response) => {
-      if (res) {
-        if (res.status === 200) {
-          return { message: 'The resource has been fetched and is transmitted in the message body.', json: res.json };
-        // tslint:disable-next-line:no-else-after-return
-        }
+      if (res.status === 200) {
+        return { message: 'The resource has been fetched and is transmitted in the message body.', json: res.json };
       }
     }).catch((error: Response) => {
       if (error.status === 404) {
@@ -24,11 +21,8 @@ export class BaseService {
 
   post(url, body): Observable<any> {
     return this.http.post(url, body).map((res: Response) => {
-      if (res) {
-        if (res.status === 201) {
-          return { message: 'The request has succeeded and a new resource has been created as a result of it.', json: res.json };
-        // tslint:disable-next-line:no-else-after-return
-        }
+      if (res.status === 201) {
+        return { message: 'The request has succeeded and a new resource has been created as a result of it.', json: res.json };
       }
     }).catch((error: Response) => {
       if (error.status === 404) {
