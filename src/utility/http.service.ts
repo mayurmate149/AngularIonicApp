@@ -23,5 +23,4 @@ export class HttpService {
         }
       }).catch((err: Response) => Observable.throw(err));
   }
-
 }

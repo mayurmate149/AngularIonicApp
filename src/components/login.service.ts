@@ -7,6 +7,7 @@ import { BaseService } from '../utility/base.service';
 export class LoginService {
   constructor(public http: BaseService) {
   }
+
   get(): Observable<any> {
     return this.http.get('https://jsonplaceholder.typicode.com/posts/1')
       .map((res: Response) => {

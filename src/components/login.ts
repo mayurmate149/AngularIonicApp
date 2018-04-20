@@ -38,6 +38,7 @@ export class LoginComponent {
       password: [''],
     });
   }
+
   getRequest() {
     this.loginService.get().subscribe((data) => {
       this.user = data.json.title;
@@ -48,7 +49,6 @@ export class LoginComponent {
       this.showToast.presentToast(error.message);
     });
   }
-
 
   postRequest() {
     this.loginService.post(this.body).subscribe((data) => {

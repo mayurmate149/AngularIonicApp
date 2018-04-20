@@ -7,6 +7,7 @@ import { HttpService } from './http.service';
 export class BaseService {
   constructor(public http: HttpService) {
   }
+
   get(url): Observable<any> {
     return this.http.get(url).map((res: Response) => {
       if (res.status === 200) {
@@ -31,29 +32,3 @@ export class BaseService {
     });
   }
 }
-
-
-  /* post(url, postBody: any, options?: RequestOptions) {
-    this.helperService.startLoader();
-    if (options) {
-      return this.http.post(url, postBody, options)
-        .map((res: Response) => {
-          return this.handleResponse(res);
-        })
-        .catch((error: Response) => Observable.throw(error))
-        .finally(() => {
-          this.helperService.stopLoader();
-        });
-    } else {
-      return this.http.post(url, postBody)
-        .map((res: Response) => {
-          return this.handleResponse(res);
-        })
-        .catch((error: Response) => Observable.throw(error))
-        .finally(() => {
-          this.helperService.stopLoader();
-        });
-    }
-  } */
-
-
