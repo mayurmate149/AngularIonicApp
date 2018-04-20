@@ -8,12 +8,16 @@ import { HomePage } from '../pages/home/home';
 import { MyApp } from './app.component';
 import { HttpService } from '../utility/http.service';
 import { HttpModule } from '@angular/http';
+import { LoginComponent } from '../components/login';
+import { LoginService } from '../components/login.service';
+import { BaseService } from '../utility/base.service';
 
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
     MyApp,
     HomePage,
+    LoginComponent,
   ],
   entryComponents: [
     MyApp,
@@ -29,6 +33,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     HttpService,
+    LoginService,
+    BaseService,
   ],
 })
 export class AppModule {}

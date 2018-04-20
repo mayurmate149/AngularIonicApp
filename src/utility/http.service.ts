@@ -2,26 +2,27 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { error } from 'util';
 
 @Injectable()
 export class HttpService {
-  public jsonData = {
-    id: 101,
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  };
-  public statusCode: any;
+
   constructor(public http: Http) { }
 
-  public get(): Observable<any> {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts/1')
-            .map((res: Response) => {this.statusCode = res.status; return res.json(); });
+  public get(url): Observable<any> {
+    return this.http.get(url)
+      .map((res: Response) => {
+        return { status: res.status, json: res.json() };
+      });
   }
 
-  public post(): Observable<any> {
-    return this.http.post('https://jsonplaceholder.typicode.com/posts/', this.jsonData)
-          .map((res: Response) => {this.statusCode = res.status; return res.json(); });
+  public post(url, body): Observable<any> {
+    return this.http.post(url, body)
+      .map((res: Response) => {
+        if (res) {
+          return { status: res.status, json: res.json() };
+        }
+      }).catch((err: Response) => Observable.throw(err));
   }
 
 }
