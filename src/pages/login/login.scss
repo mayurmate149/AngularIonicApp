@@ -1,0 +1,75 @@
+page-login {
+    ion-content{
+        background: linear-gradient(
+            to bottom, 
+            color($colors, bg-top) 0%, 
+            color($colors, bg-top) 50%, 
+            color($colors, bg-bottom) 50%, 
+            color($colors, bg-bottom) 100%
+        );
+        height: 100%;
+        width: 100%;
+        background-size: cover;                      
+        background-repeat:   no-repeat;
+        background-position: center ;
+        -webkit-background-size:cover;
+        }
+        .logo{
+            height: 175px;
+        }
+    
+        .login-form { 
+            margin: 0 25px;
+            font-weight: 500;
+            position: relative;
+    
+            ion-card-header {
+                color: color($colors, bg-bottom);
+                padding-bottom: 0;
+            }
+            ion-item{
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+    
+            a {
+                color: color($colors, link-color);
+            }
+
+            a:hover {
+                color: color($colors, link-hover-color);
+            }
+        }   
+    
+        .log-btn {
+            border-radius: 50%;
+            background-color: color($colors, login-button);
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 90%;
+            left: 40%;
+        }
+    
+        .checkbox{
+            padding-left: 8%;
+        }
+    
+        .forgot-pass{
+            padding-left: 11%;
+        }
+    
+        .checkbox-icon{
+            border-radius: 50% !important;
+        }
+    
+        .footer{
+            position: absolute;
+            bottom: 0;
+            left: 28%;
+            color: color($colors, light);
+            font-size: 13px;
+        }  
+
+
+}

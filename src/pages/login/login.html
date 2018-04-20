@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="container" text-center padding-top>
+    <div>
+      <img class="logo" src="{{teamTrackerLogo}}" alt="Team Pilot">
+    </div>
+    <div class="login-form">
+      <ion-card>
+        <ion-card-header>
+          {{'LOGIN' | translate}}
+        </ion-card-header>
+
+        <ion-card-content>
+          <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)" autocomplete="off">
+            <ion-item [class.invalid]="!loginForm.controls.username.valid && (loginForm.controls.username.dirty)">
+              <ion-label floating>{{'Username' | translate}}</ion-label>
+              <ion-input name="username" [(ngModel)]="username" formControlName="username" type="text"></ion-input>
+            </ion-item>
+            <ion-item [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty)">
+              <ion-label floating>{{'Password' | translate}}</ion-label>
+              <ion-input name="password" [(ngModel)]="password" formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <ion-item class="checkbox">
+              <ion-label>{{'Remember Me' | translate}}</ion-label>
+              <ion-checkbox color="dark" checked="true"></ion-checkbox>
+            </ion-item>
+            <ion-item margin-bottom>
+              <a href="#" class="forgot-pass">{{'Forgot Password' | translate}}</a>
+            </ion-item>
+            <button class="log-btn" type="submit" ion-button round>
+              <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+            </button>
+          </form>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+    <div class="footer">
+      <p>&copy; 2018 LocationGuru Ltd.</p>
+    </div>
+  </div>
+
+</ion-content>
